@@ -1,0 +1,1116 @@
+
+/* =========================================================
+   FOOD CORNER
+   WEB TECHNOLOGIES - LAB 3 CSS
+   ========================================================= */
+
+
+/* =========================================================
+   1. UNIVERSAL SELECTOR + BOX SIZING
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   2. ELEMENT SELECTOR
+   ========================================================= */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+    background-color: #fffaf5;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   3. GROUPING SELECTOR
+   ========================================================= */
+
+h1,
+h2,
+h3,
+p {
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   4. CONTAINER
+   ========================================================= */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   5. HEADER
+   ========================================================= */
+
+.header {
+    background-color: #171717;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+.navbar {
+    min-height: 75px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+/* CLASS SELECTOR */
+
+.logo {
+    color: #ff6b35;
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.nav-links {
+    list-style: none;
+
+    display: flex;
+
+    gap: 8px;
+}
+
+
+/* DESCENDANT SELECTOR */
+
+.header nav ul li a {
+    display: inline-block;
+
+    color: white;
+
+    padding: 10px 16px;
+
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+
+/* :HOVER PSEUDO-CLASS */
+
+.nav-links li a:hover {
+    background-color: #ff6b35;
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+
+.hero {
+    min-height: 650px;
+
+    background-color: #252525;
+
+    /* Background Image */
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.68),
+            rgba(0, 0, 0, 0.68)
+        ),
+        url("images/pizza.jpg");
+
+    /* Background Properties */
+    background-repeat: no-repeat;
+
+    background-position: center;
+
+    background-size: cover;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.hero-overlay {
+    width: 100%;
+}
+
+
+.hero-content {
+    color: white;
+
+    text-align: center;
+
+    max-width: 850px;
+}
+
+
+.hero-tagline {
+    color: #ffb703;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+}
+
+
+.hero h1 {
+    font-size: clamp(42px, 7vw, 76px);
+
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   CHILD / DESCENDANT SELECTORS
+   ========================================================= */
+
+.hero-content > p:not(.hero-tagline) {
+    font-size: 19px;
+
+    max-width: 650px;
+
+    margin: 0 auto 30px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn {
+    display: inline-block;
+
+    padding: 12px 24px;
+
+    border: 2px solid transparent;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+
+.hero-btn {
+    background-color: #ff6b35;
+
+    color: white;
+}
+
+
+.hero-btn:hover {
+    background-color: #ffb703;
+
+    color: #171717;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+   ========================================================= */
+
+.section {
+    padding: 90px 0;
+}
+
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+
+.section-heading h2 {
+    font-size: 40px;
+
+    color: #171717;
+
+    position: relative;
+
+    display: inline-block;
+}
+
+
+/* =========================================================
+   PSEUDO-ELEMENT ::BEFORE
+   ========================================================= */
+
+.section-heading h2::before {
+    content: "🍴 ";
+
+    margin-right: 5px;
+}
+
+
+/* =========================================================
+   PSEUDO-ELEMENT ::AFTER
+   ========================================================= */
+
+.section-heading h2::after {
+    content: " 🍴";
+
+    margin-left: 5px;
+}
+
+
+.section-heading p {
+    color: #777777;
+}
+
+
+/* =========================================================
+   MENU SECTION
+   ========================================================= */
+
+.menu-section {
+    background-color: #fffaf5;
+}
+
+
+/* =========================================================
+   FOOD GRID
+   ========================================================= */
+
+.food-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   FOOD CARD
+   BOX MODEL:
+   Content → Padding → Border → Margin
+   ========================================================= */
+
+.food-card {
+    width: 100%;
+
+    height: 470px;
+
+    padding: 0;
+
+    margin: 0;
+
+    border: 1px solid #e6e6e6;
+
+    border-radius: 18px;
+
+    background-color: white;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.08);
+
+    box-sizing: border-box;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Card hover */
+
+.food-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 18px 35px rgba(0, 0, 0, 0.16);
+}
+
+
+/* =========================================================
+   :FIRST-CHILD PSEUDO-CLASS
+   ========================================================= */
+
+.food-grid .food-card:first-child {
+    border: 3px solid #ff6b35;
+
+    background-color: #fff4ed;
+
+    transform: translateY(-5px);
+}
+
+
+.food-grid .food-card:first-child:hover {
+    transform: translateY(-15px);
+}
+
+
+/* =========================================================
+   FOOD IMAGE
+   ========================================================= */
+
+.food-image {
+    width: 100%;
+
+    height: 220px;
+
+    overflow: hidden;
+}
+
+
+.food-image img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.4s ease;
+}
+
+
+.food-card:hover .food-image img {
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   FOOD CONTENT
+   ========================================================= */
+
+.food-content {
+    padding: 22px;
+}
+
+
+.food-category {
+    color: #ff6b35;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+.food-content h3 {
+    font-size: 25px;
+
+    color: #171717;
+
+    margin: 7px 0 10px;
+}
+
+
+/* Basic rule */
+
+.food-content p {
+    color: #666666;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   SPECIFICITY DEMONSTRATION
+   More specific selector overrides the rule above.
+   ========================================================= */
+
+.food-card .food-content p {
+    color: #555555;
+}
+
+
+.food-footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 20px;
+}
+
+
+.price {
+    color: #ff6b35;
+
+    font-size: 22px;
+
+    font-weight: 800;
+}
+
+
+/* Order Button */
+
+.order-btn {
+    background-color: #171717;
+
+    color: white;
+
+    padding: 9px 15px;
+
+    font-size: 13px;
+}
+
+
+/* Order Button Hover */
+
+.order-btn:hover {
+    background-color: #ff6b35;
+
+    color: white;
+
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   ABOUT SECTION
+   ========================================================= */
+
+.about-section {
+    background-color: #171717;
+
+    color: white;
+}
+
+
+.about-content {
+    display: grid;
+
+    grid-template-columns: 1.3fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+
+.small-title {
+    display: block;
+
+    color: #ffb703;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+}
+
+
+.about-text h2 {
+    font-size: 44px;
+
+    color: white;
+}
+
+
+.about-text p {
+    color: #cccccc;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   INHERITANCE OVERRIDE
+   ========================================================= */
+
+.about-text .special-message {
+    color: #ffb703;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   ABOUT BOX
+   ========================================================= */
+
+.about-box {
+    border: 1px solid #444444;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    background-color: #222222;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+
+.about-stat {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid #444444;
+}
+
+
+.about-stat:last-child {
+    border-bottom: none;
+}
+
+
+.about-stat strong {
+    color: #ff6b35;
+
+    font-size: 32px;
+}
+
+
+.about-stat span {
+    color: #dddddd;
+}
+
+
+/* =========================================================
+   CSS DEMONSTRATION SECTION
+   ========================================================= */
+
+.css-demo {
+    background-color: #f5f5f5;
+}
+
+
+.demo-box {
+    background-color: white;
+
+    padding: 30px;
+
+    margin-bottom: 30px;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.06);
+}
+
+
+.demo-box h3 {
+    color: #ff6b35;
+}
+
+
+/* =========================================================
+   MARGIN COLLAPSING
+   ========================================================= */
+
+.collapse-one {
+    background-color: #ffe0d1;
+
+    padding: 15px;
+
+    margin-bottom: 30px;
+}
+
+
+.collapse-two {
+    background-color: #d9f5e5;
+
+    padding: 15px;
+
+    margin-top: 30px;
+}
+
+
+.demo-note {
+    margin-top: 20px;
+
+    font-size: 14px;
+
+    color: #777777;
+}
+
+
+/* =========================================================
+   WIDTH / HEIGHT / MIN / MAX
+   ========================================================= */
+
+.responsive-demo {
+    width: 80%;
+
+    height: 180px;
+
+    min-width: 280px;
+
+    max-width: 900px;
+
+    min-height: 150px;
+
+    max-height: 250px;
+
+    overflow: auto;
+
+    margin-left: auto;
+
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   OVERFLOW
+   ========================================================= */
+
+.overflow-container {
+    width: 100%;
+
+    height: 120px;
+
+    padding: 20px;
+
+    border: 2px solid #ff6b35;
+
+    background-color: #fff4ed;
+
+    /*
+       For the lab demonstration, you can change this to:
+
+       overflow: visible;
+
+       OR
+
+       overflow: hidden;
+
+       OR
+
+       overflow: scroll;
+    */
+
+    overflow: scroll;
+}
+
+
+.overflow-container p {
+    min-width: 500px;
+}
+
+
+/* =========================================================
+   DISPLAY PROPERTIES
+   ========================================================= */
+
+
+/* DISPLAY: BLOCK */
+
+.block-example {
+    display: block;
+
+    background-color: #ffb703;
+
+    padding: 10px;
+
+    margin-bottom: 10px;
+}
+
+
+/* DISPLAY: INLINE */
+
+.inline-example {
+    display: inline;
+
+    background-color: #d9f5e5;
+
+    padding: 8px;
+}
+
+
+/* DISPLAY: INLINE-BLOCK */
+
+.inline-block-example {
+    display: inline-block;
+
+    background-color: #ff6b35;
+
+    color: white;
+
+    padding: 10px 18px;
+
+    margin: 15px 0;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+}
+
+
+/* DISPLAY: NONE */
+
+.hidden-example {
+    display: none;
+}
+
+
+.hidden-element {
+    display: none;
+}
+
+
+/* =========================================================
+   CASCADE
+   ========================================================= */
+
+.cascade-demo {
+    color: #0000ff;
+}
+
+
+/* Same specificity + later rule = cascade */
+
+.cascade-demo {
+    color: #800080;
+}
+
+
+/* =========================================================
+   SPECIFICITY
+   ========================================================= */
+
+.specificity-demo {
+    color: blue;
+}
+
+
+/* More specific selector wins */
+
+.demo-box p.specificity-demo {
+    color: #ff6b35;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   CONTACT SECTION
+   ========================================================= */
+
+.contact-section {
+    background-color: #fffaf5;
+}
+
+
+.contact-container {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: start;
+}
+
+
+.contact-info h2 {
+    font-size: 42px;
+
+    color: #171717;
+}
+
+
+.contact-info > p {
+    color: #666666;
+
+    max-width: 500px;
+}
+
+
+.contact-detail {
+    display: block;
+
+    margin-top: 25px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #dddddd;
+}
+
+
+.contact-detail strong {
+    display: block;
+
+    color: #171717;
+
+    margin-bottom: 5px;
+}
+
+
+.contact-detail span {
+    color: #777777;
+}
+
+
+/* =========================================================
+   ATTRIBUTE SELECTORS
+   ========================================================= */
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    margin-bottom: 18px;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Attribute selector + pseudo-class */
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #ff6b35;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 107, 53, 0.12);
+}
+
+
+textarea {
+    resize: vertical;
+}
+
+
+.contact-form label {
+    display: block;
+
+    font-weight: bold;
+
+    color: #333333;
+
+    margin-bottom: 6px;
+}
+
+
+.submit-btn {
+    border: none;
+
+    background-color: #ff6b35;
+
+    color: white;
+
+    width: 100%;
+}
+
+
+.submit-btn:hover {
+    background-color: #171717;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    background-color: #111111;
+
+    color: white;
+
+    padding: 25px 0;
+}
+
+
+.footer-content {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.footer p {
+    margin: 0;
+
+    color: #aaaaaa;
+}
+
+
+.footer a {
+    color: #ffb703;
+
+    text-decoration: none;
+}
+
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   ID SELECTOR
+   ========================================================= */
+
+#contact {
+    scroll-margin-top: 80px;
+}
+
+
+#menu {
+    scroll-margin-top: 80px;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .food-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .about-content,
+    .contact-container {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .navbar {
+        flex-direction: column;
+
+        padding: 15px 0;
+    }
+
+
+    .nav-links {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        margin-top: 10px;
+    }
+
+
+    .hero {
+        min-height: 550px;
+    }
+
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+
+    .food-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .food-card {
+        height: auto;
+
+        min-height: 450px;
+    }
+
+
+    .section {
+        padding: 65px 0;
+    }
+
+
+    .section-heading h2,
+    .about-text h2,
+    .contact-info h2 {
+        font-size: 32px;
+    }
+
+
+    .footer-content {
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+    }
+
+}
